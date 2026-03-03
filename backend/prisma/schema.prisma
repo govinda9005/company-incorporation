@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =============================
+// Company Model
+// =============================
+model Company {
+  id                   Int           @id @default(autoincrement())
+  name                 String        @unique   // 🔥 Prevent duplicate company names
+  numberOfShareholders Int
+  totalCapital         Float
+  status               String        @default("DRAFT")
+
+  createdAt            DateTime      @default(now())
+  updatedAt            DateTime      @updatedAt
+
+  shareholders         Shareholder[]
+}
+
+// =============================
+// Shareholder Model
+// =============================
+model Shareholder {
+  id          Int      @id @default(autoincrement())
+  firstName   String
+  lastName    String
+  nationality String
+
+  companyId   Int
+  company     Company  @relation(fields: [companyId], references: [id], onDelete: Cascade)
+}

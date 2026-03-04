@@ -138,18 +138,23 @@ One Company → Many Shareholders
 ## API Overview
 
 - POST /companies
+
   Create a new company (Step 1 – Save Draft)
 
 - PUT /companies/:id
+
   Update company draft information
 
 - GET /companies/:id
+
   Retrieve a single company with its shareholders
 
 - GET /companies
+
   Retrieve all companies (Admin view)
 
 - POST /companies/:id/shareholders
+
   Add shareholders to a specific company (Step 2)
 
 ## Key Features

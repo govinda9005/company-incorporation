@@ -9,6 +9,8 @@ services:
       POSTGRES_DB: companydb
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
   backend:
     build: ./backend
@@ -20,3 +22,6 @@ services:
       - "3001:3001"
     environment:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/companydb
+
+volumes:
+  postgres_data:

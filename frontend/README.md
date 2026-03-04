@@ -15,10 +15,8 @@ Built using:
 - Step 1: Create Company
 - Step 2: Add Shareholders Dynamically
 - Save Draft Progress
-- Edit Existing Company
 - Admin Dashboard (View All Companies)
 - Update Company Status
-- Delete Company with Confirmation
 
 ## Application Flow
 

@@ -18,10 +18,7 @@ app.use("/shareholders", shareholderRoutes);
 // Root route
 app.get("/", (req, res) => res.send("Backend is running"));
 
-/*
-  Centralized Error Handling Middleware
-  This must be AFTER routes
-*/
+// Centralized Error Handling Middleware
 app.use((err, req, res, next) => {
   console.error("Error:", err);
 

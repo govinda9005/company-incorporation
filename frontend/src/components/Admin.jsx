@@ -95,7 +95,7 @@ const Admin = () => {
   );
 };
 
-/* ===== STYLES ===== */
+// STYLES
 
 const pageStyle = {
   minHeight: "100vh",

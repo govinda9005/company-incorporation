@@ -4,11 +4,8 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-/**
- * ================================
- *  Create Company (Step 1 - Draft)
- * ================================
- */
+//Create Company (Step 1 - Draft)
+
 router.post("/", async (req, res) => {
   try {
     const { name, numberOfShareholders, totalCapital } = req.body;
@@ -52,11 +49,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-/**
- * ================================
- *  Get Company By ID
- * ================================
- */
+// Get Company By ID
+
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -77,11 +71,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-/**
- * ================================
- *  Update Company Draft
- * ================================
- */
+// Update Company Draft
+
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -125,11 +116,8 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-/**
- * ================================
- *  Update Company Status
- * ================================
- */
+// Update Company Status
+
 router.patch("/:id/status", async (req, res) => {
   try {
     const { id } = req.params;
@@ -151,31 +139,8 @@ router.patch("/:id/status", async (req, res) => {
   }
 });
 
-/**
- * ================================
- *  Delete Company
- * ================================
- */
-router.delete("/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
+// Get All Companies (Admin View)
 
-    await prisma.company.delete({
-      where: { id: Number(id) },
-    });
-
-    return res.json({ message: "Company deleted successfully" });
-  } catch (error) {
-    console.error("Delete Company Error:", error);
-    return res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-/**
- * ================================
- *  Get All Companies (Admin View)
- * ================================
- */
 router.get("/", async (req, res) => {
   try {
     const companies = await prisma.company.findMany({

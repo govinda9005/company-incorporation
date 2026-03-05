@@ -139,7 +139,7 @@ router.patch("/:id/status", async (req, res) => {
   }
 });
 
-// Get All Companies (Admin View)
+//Get All Companies (Admin View)
 
 router.get("/", async (req, res) => {
   try {
